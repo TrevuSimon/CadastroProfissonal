@@ -1,5 +1,6 @@
 package br.edu.fapi.cadastroprofissional.controller;
 
+
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.database.dao.DAO;
@@ -58,5 +59,4 @@ public class Controller {
 	public void cadastroProfissionalMedico(Funcionario dadosPreenchidos) {
 		funcionario.cadastrarFuncionarioMedico(dadosPreenchidos);
 	}
-
 }
