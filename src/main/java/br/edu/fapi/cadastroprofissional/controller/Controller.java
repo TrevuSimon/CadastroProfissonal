@@ -1,5 +1,6 @@
 package br.edu.fapi.cadastroprofissional.controller;
 
+
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.database.dao.DAO;
@@ -12,7 +13,7 @@ public class Controller{
     Funcionario employee = new Funcionario();
     DAO funcionario = new DAO();
 
-    //testar de opção na tela inicial
+    //testar de opï¿½ï¿½o na tela inicial
     public int opcaoMenu() {
         int op;
         boolean ok = true;
@@ -20,7 +21,7 @@ public class Controller{
         op = scanner.nextInt();
         while (ok) {
             if (op < 1 || op > 9) {
-                System.out.println("Opcao Inválida digite novamente");
+                System.out.println("Opcao Invï¿½lida digite novamente");
                 op = scanner.nextInt();
             } else {
                 ok = false;
@@ -29,7 +30,7 @@ public class Controller{
         return op;
     }
 
-    //testar de opção na tela registrar profissional
+    //testar de opï¿½ï¿½o na tela registrar profissional
     public int opcaoRegisterProfissional() {
         int op;
         boolean ok = true;
@@ -37,7 +38,7 @@ public class Controller{
         op = scanner.nextInt();
         while (ok) {
             if (op < 1 || op > 3) {
-                System.out.println("Opcao Inválida digite novamente");
+                System.out.println("Opcao Invï¿½lida digite novamente");
                 op = scanner.nextInt();
             } else {
                 ok = false;
@@ -57,5 +58,4 @@ public class Controller{
     public void cadastroProfissionalMedico(Funcionario dadosPreenchidos) {
         funcionario.cadastrarFuncionarioMedico(dadosPreenchidos);
     }
-
 }
