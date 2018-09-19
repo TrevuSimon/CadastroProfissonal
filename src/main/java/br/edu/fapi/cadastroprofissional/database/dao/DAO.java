@@ -11,6 +11,7 @@ import com.mysql.jdbc.Statement;
 import br.edu.fapi.cadastroprofissional.model.Funcionario;
 
 public class DAO {
+	
 	public int cadastrarFuncionarioAdvogado(Funcionario funcionario) {
         try (Connection connection = Connections.openConnection()) {
 

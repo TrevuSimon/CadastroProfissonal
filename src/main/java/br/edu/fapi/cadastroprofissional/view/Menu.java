@@ -27,14 +27,15 @@ public class Menu {
         return aux;
     }
 
-    public void registerProfessional() {
+    public int registerProfessional() {
         System.out.println("===========================================================================");
         System.out.println("+   Cadastrar Profissionais:                                              +\n+                                                                         +");
         System.out.println("+   01 – Advogado                                                         +");
         System.out.println("+   02 – Dentista                                                         +");
         System.out.println("+   03 – Médico                                                           +");
         System.out.println("===========================================================================");
-        opcao.opcaoRegisterProfissional();
+        aux = opcao.opcaoRegisterProfissional();
+        return aux;
     }
 
 }
