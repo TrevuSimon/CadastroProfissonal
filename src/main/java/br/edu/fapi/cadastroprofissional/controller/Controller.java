@@ -21,7 +21,7 @@ public class Controller {
 		System.out.println("+   Escolha uma opcao acima: ");
 		op = scanner.nextInt();
 		while (ok) {
-			if (op < 1 || op > 9) {
+			if (op < 0 || op > 9) {
 				System.out.println("Opcao Inválida digite novamente");
 				op = scanner.nextInt();
 			} else {
