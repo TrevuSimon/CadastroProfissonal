@@ -1,4 +1,4 @@
 package br.edu.fapi.cadastroprofissional.model;
 
-public class Pessoa {
+public class Medico extends Funcionario {
 }

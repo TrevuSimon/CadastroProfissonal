@@ -4,16 +4,21 @@ import java.util.Date;
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.controller.Controller;
+import br.edu.fapi.cadastroprofissional.model.Advogado;
+import br.edu.fapi.cadastroprofissional.model.Dentista;
 import br.edu.fapi.cadastroprofissional.model.Funcionario;
+import br.edu.fapi.cadastroprofissional.model.Medico;
 
 public class Register {
 
 	Date dataNascimento;
 	Scanner scanner = new Scanner(System.in);
 	Controller cadastro = new Controller();
-	Funcionario funcionario = new Funcionario();
+	Funcionario funcionario;
 
 	public void cadastrarFuncionarioAdvogado() {
+
+		funcionario = new Advogado();
 
 		System.out.println("===========================================================================");
 		System.out.println(
@@ -42,6 +47,8 @@ public class Register {
 
 	public void cadastrarFuncionarioDentista() {
 
+		funcionario = new Dentista();
+
 		System.out.println("===========================================================================");
 		System.out.println(
 				"+   Cadastrar Dentista - preencha os campos abaixo                        +\n+                                                                         +");
@@ -68,6 +75,8 @@ public class Register {
 	}
 
 	public void cadastrarFuncionarioMedico() {
+
+		funcionario = new Medico();
 
 		System.out.println("===========================================================================");
 		System.out.println(
