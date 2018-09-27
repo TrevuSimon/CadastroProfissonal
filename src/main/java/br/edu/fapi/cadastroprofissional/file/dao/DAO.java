@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 
 
 public class DAO {
+<<<<<<< HEAD
 	
 	public boolean reportName(List<Funcionario> funcionarios) {
 
@@ -45,9 +46,15 @@ public class DAO {
 		Path path = Paths.get(System.getProperty("user.dir")).resolve("Ralatorios");
 		//Verifica se o path representa um diretorio, o retorno � false pois o diret�rio ainda n�o foi criado.
 		System.out.println(Files.isDirectory(path));
+=======
+>>>>>>> feature/alexandre
 
+	public void files_createDirectory() throws Exception {
+		Path path = Paths.get(System.getProperty("user.dir")).resolve("Ralatorios");
+		
 		try {
 			Files.createDirectory(path);
+<<<<<<< HEAD
 		}catch(FileAlreadyExistsException e) {
 			System.out.println("Diret�rio j� criado.");
 		}
@@ -55,6 +62,12 @@ public class DAO {
 		//Nesse momento o retorno � verdadeiro pois o diret�rio foi criado.
 		System.out.println(Files.isDirectory(path));
 
+=======
+		} catch (FileAlreadyExistsException e) {
+		}
+>>>>>>> feature/alexandre
 	}
+	
+	
 
 }

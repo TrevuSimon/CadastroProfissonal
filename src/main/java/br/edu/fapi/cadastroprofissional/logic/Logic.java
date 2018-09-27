@@ -1,10 +1,12 @@
 package br.edu.fapi.cadastroprofissional.logic;
 
+import br.edu.fapi.cadastroprofissional.file.dao.DAO;
 import br.edu.fapi.cadastroprofissional.view.Register;
 
 public class Logic {
 
 	Register dados = new Register();
+	DAO files = new DAO();
 
 	public void ecolherProfissional(int op) {
 		switch (op) {
@@ -17,6 +19,14 @@ public class Logic {
 		case 3:
 			dados.cadastrarFuncionarioMedico();
 			break;
+		}
+	}
+	
+	public void criarDiretorio() throws Exception {
+		try {
+			files.files_createDirectory();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
