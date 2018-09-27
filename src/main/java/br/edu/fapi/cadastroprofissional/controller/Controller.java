@@ -1,6 +1,7 @@
 package br.edu.fapi.cadastroprofissional.controller;
 
 
+import java.util.List;
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.database.dao.DAO;
@@ -10,9 +11,9 @@ public class Controller {
 
 	int aux;
 	DAO funcionario = new DAO();
+	br.edu.fapi.cadastroprofissional.file.dao.DAO file = new br.edu.fapi.cadastroprofissional.file.dao.DAO();
 
 	Scanner scanner = new Scanner(System.in);
-	Funcionario employee = new Funcionario();
 
 	// testar de opção na tela inicial
 	public int opcaoMenu() {
@@ -58,5 +59,15 @@ public class Controller {
 
 	public void cadastroProfissionalMedico(Funcionario dadosPreenchidos) {
 		funcionario.cadastrarFuncionarioMedico(dadosPreenchidos);
+	}
+
+	public boolean ControllerReportName(){
+		List<Funcionario> funcionarios = funcionario.listarProfissionais();
+		if(file.reportName(funcionarios)){
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 }
