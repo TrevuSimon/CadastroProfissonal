@@ -1,6 +1,5 @@
 package br.edu.fapi.cadastroprofissional.database.dao;
 
-import java.awt.List;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -101,28 +100,85 @@ public class DAO {
 		return 0;
 	}
 
-	public ArrayList<Funcionario> listarFuncionarios() {
-		ArrayList<Funcionario> funcionarios = new ArrayList<>();
+	public ArrayList<Funcionario> listarFuncionarios_adv() {
+
+		ArrayList<Funcionario> funcionariosADV = new ArrayList<>();
+
 		try (Connection connection = Connections.openConnection()) {
-			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(
-					"select * from funcionario_adv order by nome;", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement preparedStatement = (PreparedStatement) connection
+					.prepareStatement("select * from funcionario_adv order by nome;", Statement.RETURN_GENERATED_KEYS);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				Funcionario funcionario = new Funcionario();
 				funcionario.setNome(resultSet.getString("nome"));
-				funcionario.setNascimento(resultSet.getDate("nascimento"));
+				// funcionario.setNascimento(resultSet.getDate("nascimento"));
 				funcionario.setRua(resultSet.getString("rua"));
 				funcionario.setCidade(resultSet.getString("cidade"));
 				funcionario.setEstado(resultSet.getString("estado"));
 				funcionario.setSalario(resultSet.getFloat("salario"));
-				funcionarios.add(funcionario);
+				funcionariosADV.add(funcionario);
 			}
 
 		} catch (SQLException e) {
 			System.out.println("Conexão não estabelecida.");
 			System.out.println(e.getMessage());
 		}
-		return funcionarios;
+		return funcionariosADV;
 	}
+
+	public ArrayList<Funcionario> listarFuncionarios_den() {
+
+		ArrayList<Funcionario> funcionariosDEN = new ArrayList<>();
+
+		try (Connection connection = Connections.openConnection()) {
+			PreparedStatement preparedStatement = (PreparedStatement) connection
+					.prepareStatement("select * from funcionario_den order by nome;", Statement.RETURN_GENERATED_KEYS);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Funcionario funcionario = new Funcionario();
+				funcionario.setNome(resultSet.getString("nome"));
+				// funcionario.setNascimento(resultSet.getDate("nascimento"));
+				funcionario.setRua(resultSet.getString("rua"));
+				funcionario.setCidade(resultSet.getString("cidade"));
+				funcionario.setEstado(resultSet.getString("estado"));
+				funcionario.setSalario(resultSet.getFloat("salario"));
+				funcionariosDEN.add(funcionario);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Conexão não estabelecida.");
+			System.out.println(e.getMessage());
+		}
+		return funcionariosDEN;
+	}
+
+	public ArrayList<Funcionario> listarFuncionarios_med() {
+
+		ArrayList<Funcionario> funcionariosMED = new ArrayList<>();
+
+		try (Connection connection = Connections.openConnection()) {
+			PreparedStatement preparedStatement = (PreparedStatement) connection
+					.prepareStatement("select * from funcionario_med order by nome;", Statement.RETURN_GENERATED_KEYS);
+
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				Funcionario funcionario = new Funcionario();
+				funcionario.setNome(resultSet.getString("nome"));
+				// funcionario.setNascimento(resultSet.getDate("nascimento"));
+				funcionario.setRua(resultSet.getString("rua"));
+				funcionario.setCidade(resultSet.getString("cidade"));
+				funcionario.setEstado(resultSet.getString("estado"));
+				funcionario.setSalario(resultSet.getFloat("salario"));
+				funcionariosMED.add(funcionario);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Conexão não estabelecida.");
+			System.out.println(e.getMessage());
+		}
+		return funcionariosMED;
+	}
+
 }
