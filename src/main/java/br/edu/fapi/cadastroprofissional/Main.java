@@ -12,8 +12,11 @@ public class Main {
 		Menu screen = new Menu();
 		Logic function = new Logic();
 		
+		//Função criar diretório para os relatórios
+		function.criarDiretorio();
+		
+		// View -----------------------------------
 		do {
-			// View -----------------------
 			op = screen.homeScreen();
 			switch (op) {
 			case 1:

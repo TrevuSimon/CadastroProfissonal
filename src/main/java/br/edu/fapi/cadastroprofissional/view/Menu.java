@@ -3,15 +3,12 @@ package br.edu.fapi.cadastroprofissional.view;
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.controller.Controller;
-import br.edu.fapi.cadastroprofissional.file.dao.DAO;
 
 public class Menu {
 
     Scanner scanner = new Scanner(System.in);
     Controller opcao = new Controller();
-    DAO files = new DAO();
     int aux;
-    boolean close = false;
 
     public int homeScreen() {
         System.out.println("===========================================================================");
@@ -41,18 +38,13 @@ public class Menu {
         return aux;
     } 
     
-    public void createReportName() throws Exception{
+    public void createReportName(){
         System.out.println("===========================================================================");
         System.out.println("+   Baixar Relatorios:                                                    +\n+                                                                         +");
         System.out.println("+   01 - Relatorio por Nome                                               +");
         System.out.println("+   02 - Voltar ao menu inicial                                           +");
         System.out.println("===========================================================================");
-        try {
-			files.files_createDirectory();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        aux = opcao.testeOpcoes(1,2);
     }
     
     public void createReportDate() {
@@ -61,6 +53,7 @@ public class Menu {
         System.out.println("+   01 - Relatorio por Data de Nascimento                                 +");
         System.out.println("+   02 - Voltar ao menu inicial                                           +");
         System.out.println("===========================================================================");
+        aux = opcao.testeOpcoes(1,2);
     }
     
     public void createReportState() {
@@ -69,6 +62,7 @@ public class Menu {
         System.out.println("+   01 - Relatorio por Estado                                             +");
         System.out.println("+   02 - Voltar ao menu inicial                                           +");
         System.out.println("===========================================================================");
+        aux = opcao.testeOpcoes(1,2);
     }
     
     public void createReportSalary() {
@@ -77,6 +71,7 @@ public class Menu {
         System.out.println("+   01 - Relatorio por Salario                                            +");
         System.out.println("+   02 - Voltar ao menu inicial                                           +");
         System.out.println("===========================================================================");
+        aux = opcao.testeOpcoes(1,2);
     }
     
     public void consolidateReport() {
