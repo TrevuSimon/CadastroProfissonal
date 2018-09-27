@@ -3,7 +3,12 @@ package br.edu.fapi.cadastroprofissional.database.dao;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.edu.fapi.cadastroprofissional.model.Advogado;
+import br.edu.fapi.cadastroprofissional.model.Dentista;
+import br.edu.fapi.cadastroprofissional.model.Medico;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
@@ -97,5 +102,68 @@ public class DAO {
             System.out.println(e.getMessage());
         }
         return 0;
+    }
+
+    public List<Funcionario> listarProfissionais() {
+        List<Funcionario> funcionarios = new ArrayList<>();
+        try (Connection connection = Connections.openConnection()) {
+            PreparedStatement preparedStatement = (PreparedStatement) connection
+                    .prepareStatement("select * from funcionario_adv ", Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Funcionario funcionario = new Advogado();
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setNome(resultSet.getString("nome"));
+                funcionario.setNascimento(resultSet.getDate("Nascimento"));
+                funcionario.setRua(resultSet.getString("rua"));
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setSalario(resultSet.getFloat("float"));
+                funcionarios.add(funcionario);
+            }
+
+
+            preparedStatement = (PreparedStatement) connection
+                    .prepareStatement("select * from funcionario_den ", Statement.RETURN_GENERATED_KEYS);
+
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Funcionario funcionario = new Dentista();
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setNome(resultSet.getString("nome"));
+                funcionario.setNascimento(resultSet.getDate("Nascimento"));
+                funcionario.setRua(resultSet.getString("rua"));
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setSalario(resultSet.getFloat("float"));
+                funcionarios.add(funcionario);
+            }
+
+            preparedStatement = (PreparedStatement) connection
+                    .prepareStatement("select * from funcionario_med ", Statement.RETURN_GENERATED_KEYS);
+
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Funcionario funcionario = new Medico();
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setNome(resultSet.getString("nome"));
+                funcionario.setNascimento(resultSet.getDate("Nascimento"));
+                funcionario.setRua(resultSet.getString("rua"));
+                funcionario.setCidade(resultSet.getString("cidade"));
+                funcionario.setEstado(resultSet.getString("estado"));
+                funcionario.setSalario(resultSet.getFloat("float"));
+                funcionarios.add(funcionario);
+            }
+
+            return funcionarios;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return funcionarios;
     }
 }

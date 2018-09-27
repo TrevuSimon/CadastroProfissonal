@@ -47,12 +47,28 @@ public class Menu {
         System.out.println("+   01 - Relatorio por Nome                                               +");
         System.out.println("+   02 - Voltar ao menu inicial                                           +");
         System.out.println("===========================================================================");
+
+        String esc = "";
+
         try {
-			files.files_createDirectory();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            files.files_createDirectory();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        System.out.print(">");
+        esc = scanner.nextLine();
+
+        if("1".equals(esc)){
+            if(opcao.ControllerReportName()) {
+                System.out.println("Sucesso! relatorio gerado");
+            }else{
+                System.out.println("Erro arquivo não gerado");
+            }
+        }
+
+
     }
     
     public void createReportDate() {

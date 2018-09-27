@@ -2,7 +2,7 @@ package br.edu.fapi.cadastroprofissional.model;
 
 import java.util.Date;
 
-public abstract class Funcionario {
+public abstract class Funcionario{
 
     protected String nome;
     protected Date nascimento;

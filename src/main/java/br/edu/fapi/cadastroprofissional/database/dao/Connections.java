@@ -9,7 +9,7 @@ public class Connections {
 
     public static String url = "jdbc:mysql://localhost:3306/cadastro_profissional";
     public static String usuario = "root";
-    public static String senha = "";
+    public static String senha = "123456";
 
     public static Connection openConnection() throws SQLException {
         return (Connection) DriverManager.getConnection(url, usuario, senha);
