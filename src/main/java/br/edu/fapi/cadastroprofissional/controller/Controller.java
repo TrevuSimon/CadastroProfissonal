@@ -1,45 +1,28 @@
 package br.edu.fapi.cadastroprofissional.controller;
 
 
+
 import java.util.List;
 import java.util.Scanner;
-
 import br.edu.fapi.cadastroprofissional.database.dao.DAO;
 import br.edu.fapi.cadastroprofissional.model.Funcionario;
 
 public class Controller {
 
-	int aux;
 	DAO funcionario = new DAO();
 	br.edu.fapi.cadastroprofissional.file.dao.DAO file = new br.edu.fapi.cadastroprofissional.file.dao.DAO();
 
+
 	Scanner scanner = new Scanner(System.in);
 
-	// testar de opção na tela inicial
-	public int opcaoMenu() {
+	// testar opcoes digitadas pelo usuario
+	public int testeOpcoes(int numInicio, int numFim) {
 		int op;
 		boolean ok = true;
 		System.out.println("+   Escolha uma opcao acima: ");
 		op = scanner.nextInt();
 		while (ok) {
-			if (op < 0 || op > 9) {
-				System.out.println("Opcao Inválida digite novamente");
-				op = scanner.nextInt();
-			} else {
-				ok = false;
-			}
-		}
-		return op;
-	}
-
-	// testar de opção na tela registrar profissional
-	public int opcaoRegisterProfissional() {
-		int op;
-		boolean ok = true;
-		System.out.println("+   Escolha uma opcao acima: ");
-		op = scanner.nextInt();
-		while (ok) {
-			if (op < 1 || op > 3) {
+			if (op < numInicio || op > numFim) {
 				System.out.println("Opcao Inválida digite novamente");
 				op = scanner.nextInt();
 			} else {
@@ -61,6 +44,7 @@ public class Controller {
 		funcionario.cadastrarFuncionarioMedico(dadosPreenchidos);
 	}
 
+
 	public boolean ControllerReportName(){
 		List<Funcionario> funcionarios = funcionario.listarProfissionais();
 		if(file.reportName(funcionarios)){
@@ -71,3 +55,4 @@ public class Controller {
 
 	}
 }
+

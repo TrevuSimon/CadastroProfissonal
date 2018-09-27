@@ -3,12 +3,15 @@ package br.edu.fapi.cadastroprofissional.view;
 import java.util.Scanner;
 
 import br.edu.fapi.cadastroprofissional.controller.Controller;
+import br.edu.fapi.cadastroprofissional.file.dao.DAO;
 
 public class Menu {
 
     Scanner scanner = new Scanner(System.in);
     Controller opcao = new Controller();
+    DAO files = new DAO();
     int aux;
+    boolean close = false;
 
     public int homeScreen() {
         System.out.println("===========================================================================");
@@ -23,7 +26,7 @@ public class Menu {
         System.out.println("+   08 - Excluir Profissional                                             +");
         System.out.println("+   09 - Sair                                                             +");
         System.out.println("===========================================================================");
-        aux = opcao.opcaoMenu();
+        aux = opcao.testeOpcoes(1,9);
         return aux;
     }
 
@@ -34,11 +37,11 @@ public class Menu {
         System.out.println("+   02 - Dentista                                                         +");
         System.out.println("+   03 - Medico                                                           +");
         System.out.println("===========================================================================");
-        aux = opcao.opcaoRegisterProfissional();
+        aux = opcao.testeOpcoes(1,3);
         return aux;
     } 
     
-    public void createReportName() {
+    public void createReportName() throws Exception{
         System.out.println("===========================================================================");
         System.out.println("+   Baixar Relatorios:                                                    +\n+                                                                         +");
         System.out.println("+   01 - Relatorio por Nome                                               +");
@@ -46,6 +49,13 @@ public class Menu {
         System.out.println("===========================================================================");
 
         String esc = "";
+
+        try {
+            files.files_createDirectory();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         System.out.print(">");
         esc = scanner.nextLine();
@@ -57,6 +67,8 @@ public class Menu {
                 System.out.println("Erro arquivo não gerado");
             }
         }
+
+
     }
     
     public void createReportDate() {
